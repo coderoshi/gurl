@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# first login on the website, then export GURL_TOKEN and GURL_USER_ID
+# usage:   gurl resource args
+# example: gurl timeline -XPOST -d '{"text":"Hello Glass!"}'
+
+token=$GURL_TOKEN
+uid=$GURL_USER_ID
+resource=$1
+shift
+curl "$@" "http://localhost:4567/$resource?token=$token&user_id=$uid"
